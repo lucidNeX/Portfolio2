@@ -102,7 +102,7 @@
 
     <q-page-container class="bg-white q-pb-none q-mb-none">
       <Home id="id_home" />
-      <About id="id_about" />
+      <!-- <About id="id_about" /> -->
       <!-- <Skills id="id_skills" /> -->
     </q-page-container>
   </q-layout>
@@ -112,13 +112,13 @@
 import { ref } from "vue";
 import Home from "./components/Home.vue";
 import WhatsApp_icon from "./assets/photos/whatsappLogo.png";
-import About from "./components/About.vue";
+// import About from "./components/About.vue";
 // import Skills from "./components/Skills.vue";
 export default {
   name: "app",
   components: {
     Home,
-    About,
+    // About,
     // Skills,
   },
   methods: {
