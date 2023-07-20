@@ -1,0 +1,436 @@
+<template>
+  <q-layout view="hHh lpr fFf" class="q-pb-none q-mb-none">
+    <q-header :elevated="isNavbarElevated" reveal class="text-white">
+      <q-page-sticky
+        expand
+        position="top"
+        class="bg-transparent mobile-hide platform-ios-hide platform-android-hide"
+      >
+        <q-toolbar class="justify-center">
+          <q-tabs v-model="selected_tab" shrink>
+            <q-tab
+              :style="[
+                selected_tab == 'id_home'
+                  ? { color: theme_color }
+                  : { color: colorWhite },
+              ]"
+              class="q-mr-sm q-py-xs custom_tab"
+              @click="scrollToElement('id_home')"
+              style="width: 120px; min-height: auto !important"
+              label="Home"
+            />
+            <q-tab
+              :style="[
+                selected_tab == 'id_about'
+                  ? { color: theme_color }
+                  : { color: colorWhite },
+              ]"
+              class="q-mr-sm q-py-xs custom_tab"
+              @click="scrollToElement('id_about')"
+              style="width:120px;min-height:auto; !important;"
+              label="About"
+            />
+            <q-tab
+              :style="[
+                selected_tab == 'id_skills'
+                  ? { color: theme_color }
+                  : { color: colorWhite },
+              ]"
+              class="q-mr-sm q-py-xs custom_tab"
+              @click="scrollToElement('id_skills')"
+              style="width: 120px; min-height: auto !important"
+              label="Skills"
+            />
+            <q-tab
+              :style="[
+                selected_tab == 'id_education'
+                  ? { color: theme_color }
+                  : { color: colorWhite },
+              ]"
+              class="q-mr-sm q-py-xs custom_tab"
+              @click="scrollToElement('id_education')"
+              style="width: 120px; min-height: auto !important"
+              label="Education"
+            />
+            <q-tab
+              :style="[
+                selected_tab == 'id_experience'
+                  ? { color: theme_color }
+                  : { color: colorWhite },
+              ]"
+              class="q-mr-sm q-py-xs custom_tab"
+              @click="scrollToElement('id_experience')"
+              style="min-height: auto !important"
+              label="Experience"
+            />
+            <q-tab
+              :style="[
+                selected_tab == 'id_projects'
+                  ? { color: theme_color }
+                  : { color: colorWhite },
+              ]"
+              class="q-mr-sm q-py-xs custom_tab"
+              @click="scrollToElement('id_projects')"
+              style="width: 120px; min-height: auto !important"
+              label="Projects"
+            />
+
+            <q-tab
+              :style="[
+                selected_tab == 'id_contactDetails'
+                  ? { color: theme_color }
+                  : { color: colorWhite },
+              ]"
+              class="q-mr-sm q-py-xs custom_tab"
+              @click="scrollToElement('id_contactDetails')"
+              style="min-height: auto !important"
+              label="Contact"
+            />
+          </q-tabs>
+        </q-toolbar>
+      </q-page-sticky>
+    </q-header>
+
+    <!-- <q-header reveal elevated class="bg-black text-white" height-hint="98">
+      <q-tabs align="center">
+        <q-route-tab to="/page1" label="Page One" />
+        <q-route-tab to="/page2" label="Page Two" />
+        <q-route-tab to="/page3" label="Page Three" />
+      </q-tabs>
+      
+    </q-header> -->
+
+    <q-page-container class="bg-white q-pb-none q-mb-none">
+      <home></home>
+    </q-page-container>
+  </q-layout>
+</template>
+
+<script>
+import { ref } from "vue";
+import home from "./components/Home.vue";
+import WhatsApp_icon from "./assets/photos/whatsappLogo.png";
+
+export default {
+  name: "app",
+  components: {
+    home,
+  },
+  methods: {
+    handleScroll() {
+      let scrollTop =
+        (window.scrollY || document.documentElement.scrollTop) + 500;
+      this.isNavbarElevated = scrollTop > 0;
+
+      // const homeOffset = document.getElementById("id_home").offsetTop;
+      const aboutOffset = document.getElementById("id_about").offsetTop;
+      const skillsOffset = document.getElementById("id_skills").offsetTop;
+      const educationOffset = document.getElementById("id_education").offsetTop;
+      const experienceOffset =
+        document.getElementById("id_experience").offsetTop;
+      const projectOffset = document.getElementById("id_projects").offsetTop;
+      const contactOffset =
+        document.getElementById("id_contactDetails").offsetTop;
+
+      if (scrollTop < aboutOffset) {
+        this.selected_tab = "id_home";
+      } else if (scrollTop < skillsOffset) {
+        this.selected_tab = "id_about";
+      } else if (scrollTop < educationOffset) {
+        this.selected_tab = "id_skills";
+      } else if (scrollTop < experienceOffset) {
+        this.selected_tab = "id_education";
+      } else if (scrollTop < projectOffset) {
+        this.selected_tab = "id_experience";
+      } else if (scrollTop < contactOffset) {
+        this.selected_tab = "id_projects";
+      } else {
+        this.selected_tab = "id_contactDetails";
+      }
+    },
+    scrollToElement(id) {
+      const el = document.getElementById(id);
+      const target = getScrollTarget(el);
+      const offset = el.offsetTop + 3;
+      const duration = 900;
+      setVerticalScrollPosition(target, offset, duration);
+      this.selected_tab = id;
+    },
+  },
+  setup() {
+    const info = ref({
+      address: "Parakkalam, Pallassana PO, Palakkad District, Kerala",
+      city: "Palakkad",
+      province: "C",
+      postcode: "678505",
+      phone: "7012099752",
+      email: "subhash20jith@gmail.com",
+    });
+    return {
+      info,
+      WhatsApp_icon,
+      selected_tab: ref("id_home"),
+      theme_color: ref("rgb(0, 163, 82)"),
+      colorWhite: ref("rgb(255 255 255)"),
+      scrollPosition: ref(null),
+      isNavbarElevated: ref(false),
+    };
+  },
+};
+</script>
+<style lang="sass">
+.GL
+  &__select-GL__menu-link
+    .default-type
+      visibility: hidden
+    &:hover
+      background: #0366d6
+      color: white
+      .q-item__section--side
+        color: white
+      .default-type
+        visibility: visible
+  &__toolbar-link
+    a
+      color: white
+      text-decoration: none
+      &:hover
+        opacity: 0.7
+  &__menu-link:hover
+    background: #0366d6
+    color: white
+  &__menu-link-signed-in,
+  &__menu-link-status
+    &:hover
+      & > div
+        background: white !important
+  &__menu-link-status
+    color: $blue-grey-6
+    &:hover
+      color: $light-blue-9
+  &__toolbar-select.q-field--focused
+    width: 40rem !important
+    .q-field__append
+      display: none
+
+.bg-image
+  // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/backgrounds/bg_lap01.jpg)
+  // background: black
+  // background-image: linear-gradient(to right, #0d1c1a, #2b3b39, #4c5c5a, #6f807e, #94a5a4)
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./assets/backgrounds/pexels-hasan-albari-1229861.png)
+  background-repeat: no-repeat
+  background-size: 100% 100%
+  height: 100vh
+  // background-size: cover
+</style>
+<style>
+.overlay {
+  background: linear-gradient(rgba(32, 30, 32, 0.53), rgba(30, 26, 26, 0.52));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.overlay2 {
+  background: linear-gradient(rgba(15, 15, 15, 0.773), rgba(15, 14, 14, 0.559));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.quote {
+  background: url(./assets/milky.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.bg-image2 {
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./assets/milky.png); */
+  /* background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/photos/1685710274578.JPEG); */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./assets/backgrounds/pexels-aaron-mello-185661.png);
+  background-repeat: no-repeat;
+  /* background-size: 100% 100%;
+height: 100vh; */
+  background-size: cover;
+}
+.bg-image3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./assets/backgrounds/jefferson-santos-9SoCnyQmkzI-unsplash.png);
+
+  background-repeat: no-repeat;
+  /* background-size: 100% 100%;
+height: 100vh; */
+  background-size: cover;
+}
+
+.windowDimension {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+}
+.ComponentDimension {
+  height: inherit;
+  width: 100vw !important;
+  background-size: cover !important;
+}
+.animation_zoomHover {
+  transition: 0.3s;
+}
+.animation_zoomHover:hover {
+  transform: scale(1.1);
+  overflow: hidden;
+}
+.fade-in {
+  animation: fadeIn 3s;
+}
+.fade-in2 {
+  animation: fadeIn 8s;
+}
+.fade-in3 {
+  animation: fadeIn 12s;
+}
+.fade-in4 {
+  animation: fadeIn 15s;
+}
+.fade-in5 {
+  animation: fadeIn 20s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(60%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+.slide_up {
+  animation-name: slideUp;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.slide_left {
+  position: relative;
+  height: 100px;
+  width: 200px;
+  /* background-color: #f2f2f2; */
+  overflow: hidden;
+  animation: slideLeft 2s ease-out;
+}
+.slide_right {
+  position: relative;
+
+  overflow: hidden;
+  animation: slideRight 2s ease-out;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.slide_down {
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 1s ease-out;
+}
+
+/* Define the keyframes for slide-down animation */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.typing_text {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40) infinite;
+  border-right: 0.15em solid;
+}
+
+/* Define the keyframes for typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.CardLogo {
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.animated-image {
+  /* Add your image styles here */
+  /* e.g., width, height, position, etc. */
+  animation: imageAnimation 1s ease-in-out infinite;
+}
+
+@keyframes imageAnimation {
+  0% {
+    /* Initial state of the image */
+    transform: scale(0.94);
+    opacity: 1;
+  }
+  50% {
+    /* Intermediate state */
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  100% {
+    /* Final state */
+    transform: scale(0.94);
+    opacity: 1;
+  }
+}
+
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+#app {
+  padding: 0px !important;
+}
+</style>
