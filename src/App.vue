@@ -101,20 +101,25 @@
     </q-header> -->
 
     <q-page-container class="bg-white q-pb-none q-mb-none">
-      <home></home>
+      <Home id="id_home" />
+      <About id="id_about" />
+      <Skills id="id_skills" />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { ref } from "vue";
-import home from "./components/Home.vue";
+import Home from "./components/Home.vue";
 import WhatsApp_icon from "./assets/photos/whatsappLogo.png";
-
+import About from "./components/About.vue";
+import Skills from "./components/Skills.vue";
 export default {
   name: "app",
   components: {
-    home,
+    Home,
+    About,
+    Skills,
   },
   methods: {
     handleScroll() {
@@ -122,7 +127,7 @@ export default {
         (window.scrollY || document.documentElement.scrollTop) + 500;
       this.isNavbarElevated = scrollTop > 0;
 
-      // const homeOffset = document.getElementById("id_home").offsetTop;
+      const homeOffset = document.getElementById("id_home").offsetTop;
       const aboutOffset = document.getElementById("id_about").offsetTop;
       const skillsOffset = document.getElementById("id_skills").offsetTop;
       const educationOffset = document.getElementById("id_education").offsetTop;
@@ -262,7 +267,6 @@ height: 100vh; */
 height: 100vh; */
   background-size: cover;
 }
-
 .windowDimension {
   height: 100vh;
   width: 100vw;
@@ -432,5 +436,6 @@ height: 100vh; */
 }
 #app {
   padding: 0px !important;
+  max-width: none !important;
 }
 </style>
