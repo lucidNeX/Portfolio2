@@ -116,7 +116,7 @@
             <p class="text-subtitle2 text-grey">Click below to contact me</p>
           </div>
 
-          <!-- <div>
+          <div>
             <ProfileCard2
               title="SUBHASH SUBRAHMANIAN"
               subTitle="Software Engineer"
@@ -127,7 +127,7 @@
               instagramUrl="https://instagram.com/_lucidnex_?igshid=ZGUzMzM3NWJiOQ=="
               imgUrl="../assets/photos/1685709617796.png"
             ></ProfileCard2>
-          </div> -->
+          </div>
 
           <div
             class="text-grey text-center items-center q-pa-sm absolute-bottom text-h6"
@@ -167,7 +167,7 @@ import Skills from "./components/Skills.vue";
 import Education from "./components/Education.vue";
 import Experience from "./components/Experience.vue";
 import Projects from "./components/Projects.vue";
-// import ProfileCard2 from "./components/ProfileCard2.vue";
+import ProfileCard2 from "./components/ProfileCard2.vue";
 
 export default {
   name: "app",
@@ -178,7 +178,7 @@ export default {
     Education,
     Experience,
     Projects,
-    // ProfileCard2,
+    ProfileCard2,
   },
   methods: {
     // handleScroll() {

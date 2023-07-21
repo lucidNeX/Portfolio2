@@ -4,7 +4,6 @@
       <div class="card profile-two">
         <div class="card-image profile-img--two">
           <img src="../assets/photos/subhashpic2.JPEG" alt="Profile Photo" />
-          <!-- src="https://image.ibb.co/c9rY6J/profile02.jpg" -->
         </div>
 
         <ul class="social-icons">
