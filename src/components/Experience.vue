@@ -1,36 +1,8 @@
 <template>
   <div class="q-ma-none q-pa-none">
-    <!-- <q-parallax
-      class="q-py-sm"
-      :class="
-        q.platform.is.android
-          ? 'aboutMobile'
-          : q.platform.is.desktop
-          ? 'aboutDesktop'
-          : 'about'
-      "
-    >
-      <template v-slot:media>
-        <img src="../assets/backgrounds/keyboard1.png" />
-      </template>
-
-      <template v-slot:content="scope">
-        <div
-          q-pt-none
-          class="absolute column items-center q-px-sm q-pt-none q-pb-sm"
-          :style="{
-            opacity: 0.65 + (1 - scope.percentScrolled) * 0.25,
-            top: scope.percentScrolled * 2 + '%',
-            left: 0,
-            right: 0,
-          }"
-        > -->
-    <div class="quote2 col-md-8 col-lg-8 col-sm-8" style="height: auto">
-      <div
-        class="full-height full-width flex flex-center"
-        style="background-color: #000000aa !important"
-      >
-        <div class="q-pt-xl full-height flex flex-center">
+    <div class="quote2 col-md-8 col-lg-8 col-sm-8">
+      <div class="" style="background-color: #000000aa !important">
+        <div class="q-pt-xl">
           <q-card class="transparent" flat :style="{}">
             <div
               class="text-h5 text-bold q-my-md q-mt-lg q-pt-lg text-center text-white"
@@ -38,14 +10,14 @@
               Experience
             </div>
             <div
-              class="text-subtitle1 q-mx-lg q-pa-md row justify-between text-grey"
+              class="row text-subtitle1 q-mx-lg q-pa-md row justify-center text-grey"
             >
               <q-intersection
                 v-for="n in companies"
                 :key="`xs-${n.name}`"
                 rounded
                 transition="flip-left"
-                class="column text-white row q-gutter-sm q-ma-lg"
+                class="row text-white row q-gutter-sm q-ma-lg"
                 :style="{}"
               >
                 <q-card

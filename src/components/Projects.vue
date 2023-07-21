@@ -1,5 +1,5 @@
 <template>
-  <div class="q-ma-none q-pa-none" style="height: fit-content">
+  <div class="q-ma-none q-pa-none" style="height: auto">
     <!-- <q-parallax
       class="q-py-lg"
       :class="q.platform.is.mobile ? 'aboutMobile' : 'window-height'"
