@@ -1,11 +1,9 @@
 <template>
-  <div class="col-lg-4 justify-center q-gutter-md">
+  <div class="col-lg-6 justify-center q-gutter-md">
     <q-intersection transition="scale" class="example-item q-my-md">
-      <!-- <a :href="project.url" target="_blank" :style="{ textDecoration: 'none' }"> -->
       <q-card class="q-ma-md techcard animation_zoomHover shadow-5">
         <transition name="" appear>
           <img height="140" class="q-pa-md slide_up" :src="imageUrl" />
-          <!-- fade-in3 -->
         </transition>
         <transition
           appear
@@ -83,6 +81,7 @@ export default {
   height: 330px;
   width: 380px;
 }
+
 .techcard {
   height: 350px !important;
   max-height: 500px !important;

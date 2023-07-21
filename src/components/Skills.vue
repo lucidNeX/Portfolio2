@@ -6,7 +6,7 @@
           Skills
         </div>
         <div class="text-subtitle1 justify-center text-grey">
-          <div class="row justify-center text-center">
+          <div class="column justify-center text-center">
             <SkillCard
               name="Languages"
               :technologies="['CSharp', 'C', 'Python', 'Java']"
@@ -100,16 +100,6 @@
   </div>
 </template>
 <style>
-.about {
-  height: 900px !important;
-}
-.aboutMobile {
-  height: 1800px !important;
-}
-
-.aboutDesktop {
-  height: 860px !important;
-}
 </style>
 
 <script>

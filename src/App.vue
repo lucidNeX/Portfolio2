@@ -100,18 +100,13 @@
       
     </q-header> -->
 
-    <q-page-container class="bg-white q-pb-none q-mb-none">
+    <q-page-container class="bg-black q-pb-none q-mb-none">
       <Home id="id_home" />
-      <transition
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated fadeOut"
-        mode="out-in"
-        :duration="200"
-        @after-leave="$root.$emit('triggerScroll')"
-      >
-        <About id="id_about" />
-      </transition>
+      <About id="id_about" />
       <Skills id="id_skills" />
+      <Education id="id_education" />
+      <Experience id="id_experience" />
+      <Projects id="id_projects" />
     </q-page-container>
   </q-layout>
 </template>
@@ -122,12 +117,19 @@ import Home from "./components/Home.vue";
 import WhatsApp_icon from "./assets/photos/whatsappLogo.png";
 import About from "./components/About.vue";
 import Skills from "./components/Skills.vue";
+import Education from "./components/Education.vue";
+import Experience from "./components/Experience.vue";
+import Projects from "./components/Projects.vue";
+
 export default {
   name: "app",
   components: {
     Home,
     About,
     Skills,
+    Education,
+    Experience,
+    Projects,
   },
   methods: {
     // handleScroll() {
@@ -272,6 +274,7 @@ height: 100vh; */
   /* background-size: 100% 100%;
 height: 100vh; */
   background-size: cover;
+  min-height: 100%;
 }
 .windowDimension {
   height: 100vh;

@@ -57,7 +57,7 @@
           >
           <div
             v-if="persistent"
-            class="q-gutter-sm q-ma-md"
+            class="q-gutter-sm q-ma-md fade-in3"
             :style="{ border: '1px solid white' }"
           >
             <span class="text-white text-subtitle2">
@@ -119,7 +119,7 @@ export default {
     },
   },
   setup() {
-    const persistent = ref(false);
+    const persistent = ref(true);
     const q = useQuasar();
     const info = ref({
       address: "Parakkalam, Pallassana PO, Palakkad District, Kerala",
