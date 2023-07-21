@@ -167,7 +167,7 @@ import Skills from "./components/Skills.vue";
 import Education from "./components/Education.vue";
 import Experience from "./components/Experience.vue";
 import Projects from "./components/Projects.vue";
-import ProfileCard2 from "./components/ProfileCard2.vue";
+// import ProfileCard2 from "./components/ProfileCard2.vue";
 
 export default {
   name: "app",
@@ -178,7 +178,7 @@ export default {
     Education,
     Experience,
     Projects,
-    ProfileCard2,
+    // ProfileCard2,
   },
   methods: {
     // handleScroll() {
