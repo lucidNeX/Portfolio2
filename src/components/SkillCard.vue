@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-6 justify-center q-gutter-md">
+  <div class="col-lg-6 col-sm-6 col-md-6 justify-center q-gutter-md">
     <q-intersection transition="scale" class="example-item q-my-md">
       <q-card class="q-ma-md techcard animation_zoomHover shadow-5">
         <transition name="" appear>
