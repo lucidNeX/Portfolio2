@@ -100,54 +100,6 @@
       
     </q-header> -->
 
-    <q-footer
-      id="id_contactDetails"
-      class="text-center q-pt-none q-mt-none row bg-image"
-    >
-      <q-toolbar class="q-pt-none q-mt-none">
-        <div class="column col">
-          <div class="absolute-top text-center">
-            <a href="#id_home" :style="{ textDecoration: 'none' }">
-              <q-btn fab icon="keyboard_arrow_up" class="text-white" />
-            </a>
-          </div>
-
-          <div class="text-h6 text-center q-pb-sm col-12">
-            Thanks for your visit !! <br />
-            <p class="text-subtitle2 text-grey">Click below to contact me</p>
-          </div>
-
-          <div>
-            <ProfileCard2
-              title="SUBHASH SUBRAHMANIAN"
-              subTitle="Software Engineer"
-              otherDetails="subhash20jith@gmail.com || 7012099752"
-              phoneNumber="7012099752"
-              emailId="subhash20jith@gmail.com"
-              linkedinUrl="https://www.linkedin.com/in/subhash-subrahmanian-37245a1b1"
-              instagramUrl="https://instagram.com/_lucidnex_?igshid=ZGUzMzM3NWJiOQ=="
-              imgUrl="../assets/photos/1685709617796.png"
-            ></ProfileCard2>
-          </div>
-
-          <div
-            class="text-grey text-center items-center q-pa-sm absolute-bottom text-h6"
-          >
-            <!-- SUBHASH SUBRAHMANIAN <br />
-            aka <br /> -->
-            &copy;
-            <a
-              class="text-grey-8 text-italic text-decoration-none text-subtitle2"
-              href="https://instagram.com/_lucidnex_?igshid=ZGUzMzM3NWJiOQ=="
-              target="_blank"
-            >
-              lucidNeX
-            </a>
-          </div>
-        </div>
-      </q-toolbar>
-    </q-footer>
-
     <q-page-container class="bg-black q-pb-none q-mb-none">
       <Home id="id_home" />
       <About id="id_about" />
@@ -168,7 +120,7 @@ import Skills from "./components/Skills.vue";
 import Education from "./components/Education.vue";
 import Experience from "./components/Experience.vue";
 import Projects from "./components/Projects.vue";
-import ProfileCard2 from "./components/ProfileCard2.vue";
+// import ProfileCard2 from "./components/ProfileCard2.vue";
 
 export default {
   name: "app",
@@ -179,7 +131,7 @@ export default {
     Education,
     Experience,
     Projects,
-    ProfileCard2,
+    // ProfileCard2,
   },
   methods: {
     // handleScroll() {
