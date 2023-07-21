@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpr fFf" class="q-pb-none q-mb-none">
-    <q-header :elevated="isNavbarElevated" reveal class="text-white">
+    <!-- <q-header :elevated="isNavbarElevated" reveal class="text-white">
       <q-page-sticky
         expand
         position="top"
@@ -89,7 +89,7 @@
           </q-tabs>
         </q-toolbar>
       </q-page-sticky>
-    </q-header>
+    </q-header> -->
 
     <!-- <q-header reveal elevated class="bg-black text-white" height-hint="98">
       <q-tabs align="center">
@@ -102,7 +102,15 @@
 
     <q-page-container class="bg-white q-pb-none q-mb-none">
       <Home id="id_home" />
-      <!-- <About id="id_about" /> -->
+      <transition
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated fadeOut"
+        mode="out-in"
+        :duration="200"
+        @after-leave="$root.$emit('triggerScroll')"
+      >
+        <About id="id_about" />
+      </transition>
       <Skills id="id_skills" />
     </q-page-container>
   </q-layout>
@@ -112,55 +120,53 @@
 import { ref } from "vue";
 import Home from "./components/Home.vue";
 import WhatsApp_icon from "./assets/photos/whatsappLogo.png";
-// import About from "./components/About.vue";
+import About from "./components/About.vue";
 import Skills from "./components/Skills.vue";
 export default {
   name: "app",
   components: {
     Home,
-    // About,
+    About,
     Skills,
   },
   methods: {
-    handleScroll() {
-      let scrollTop =
-        (window.scrollY || document.documentElement.scrollTop) + 500;
-      this.isNavbarElevated = scrollTop > 0;
-
-      const homeOffset = document.getElementById("id_home").offsetTop;
-      const aboutOffset = document.getElementById("id_about").offsetTop;
-      const skillsOffset = document.getElementById("id_skills").offsetTop;
-      const educationOffset = document.getElementById("id_education").offsetTop;
-      const experienceOffset =
-        document.getElementById("id_experience").offsetTop;
-      const projectOffset = document.getElementById("id_projects").offsetTop;
-      const contactOffset =
-        document.getElementById("id_contactDetails").offsetTop;
-
-      if (scrollTop < aboutOffset) {
-        this.selected_tab = "id_home";
-      } else if (scrollTop < skillsOffset) {
-        this.selected_tab = "id_about";
-      } else if (scrollTop < educationOffset) {
-        this.selected_tab = "id_skills";
-      } else if (scrollTop < experienceOffset) {
-        this.selected_tab = "id_education";
-      } else if (scrollTop < projectOffset) {
-        this.selected_tab = "id_experience";
-      } else if (scrollTop < contactOffset) {
-        this.selected_tab = "id_projects";
-      } else {
-        this.selected_tab = "id_contactDetails";
-      }
-    },
-    scrollToElement(id) {
-      const el = document.getElementById(id);
-      const target = getScrollTarget(el);
-      const offset = el.offsetTop + 3;
-      const duration = 900;
-      setVerticalScrollPosition(target, offset, duration);
-      this.selected_tab = id;
-    },
+    // handleScroll() {
+    //   let scrollTop =
+    //     (window.scrollY || document.documentElement.scrollTop) + 500;
+    //   this.isNavbarElevated = scrollTop > 0;
+    //   const homeOffset = document.getElementById("id_home").offsetTop;
+    //   const aboutOffset = document.getElementById("id_about").offsetTop;
+    //   const skillsOffset = document.getElementById("id_skills").offsetTop;
+    //   const educationOffset = document.getElementById("id_education").offsetTop;
+    //   const experienceOffset =
+    //     document.getElementById("id_experience").offsetTop;
+    //   const projectOffset = document.getElementById("id_projects").offsetTop;
+    //   const contactOffset =
+    //     document.getElementById("id_contactDetails").offsetTop;
+    //   if (scrollTop < aboutOffset) {
+    //     this.selected_tab = "id_home";
+    //   } else if (scrollTop < skillsOffset) {
+    //     this.selected_tab = "id_about";
+    //   } else if (scrollTop < educationOffset) {
+    //     this.selected_tab = "id_skills";
+    //   } else if (scrollTop < experienceOffset) {
+    //     this.selected_tab = "id_education";
+    //   } else if (scrollTop < projectOffset) {
+    //     this.selected_tab = "id_experience";
+    //   } else if (scrollTop < contactOffset) {
+    //     this.selected_tab = "id_projects";
+    //   } else {
+    //     this.selected_tab = "id_contactDetails";
+    //   }
+    // },
+    // scrollToElement(id) {
+    //   const el = document.getElementById(id);
+    //   const target = getScrollTarget(el);
+    //   const offset = el.offsetTop + 3;
+    //   const duration = 900;
+    //   setVerticalScrollPosition(target, offset, duration);
+    //   this.selected_tab = id;
+    // },
   },
   setup() {
     const info = ref({
