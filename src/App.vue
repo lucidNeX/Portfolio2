@@ -116,7 +116,7 @@
             <p class="text-subtitle2 text-grey">Click below to contact me</p>
           </div>
 
-          <div>
+          <!-- <div>
             <ProfileCard2
               title="SUBHASH SUBRAHMANIAN"
               subTitle="Software Engineer"
@@ -127,7 +127,7 @@
               instagramUrl="https://instagram.com/_lucidnex_?igshid=ZGUzMzM3NWJiOQ=="
               imgUrl="../assets/photos/1685709617796.png"
             ></ProfileCard2>
-          </div>
+          </div> -->
 
           <div
             class="text-grey text-center items-center q-pa-sm absolute-bottom text-h6"
